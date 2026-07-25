@@ -76,7 +76,7 @@ export default function Home() {
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-12">
         {/* Banner Hero Slider */}
-        <section className="relative rounded-3xl overflow-hidden shadow-lg bg-slate-900 border border-slate-200/20 aspect-[21/9] min-h-[320px] sm:min-h-[420px]">
+        <section className="relative rounded-3xl overflow-hidden shadow-lg bg-slate-900 border border-slate-200/20 aspect-[16/10] sm:aspect-[21/9] min-h-[220px] xs:min-h-[260px] sm:min-h-[380px] md:min-h-[440px]">
           {BANNERS.map((banner, index) => (
             <div
               key={banner.id}
@@ -87,37 +87,37 @@ export default function Home() {
               <img
                 src={banner.image}
                 alt={banner.title}
-                className="w-full h-full object-cover opacity-45 scale-105"
+                className="w-full h-full object-cover opacity-50 transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent flex items-center p-6 sm:p-12">
-                <div className="max-w-xl space-y-4">
-                  <span className="inline-flex items-center gap-1.5 badge-gold-glowing font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
-                    <Sparkles className="w-4 h-4" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-transparent flex items-center p-4 sm:p-8 md:p-12">
+                <div className="max-w-xl space-y-2 sm:space-y-4">
+                  <span className="inline-flex items-center gap-1 sm:gap-1.5 badge-gold-glowing font-black text-[10px] sm:text-xs px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     {banner.tag}
                   </span>
-                  <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight drop-shadow-md break-words">
+                  <h2 className="text-lg sm:text-3xl md:text-5xl font-black text-white leading-tight drop-shadow-md break-words">
                     {banner.title}
                   </h2>
-                  <p className="text-xs sm:text-sm text-slate-300 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] sm:text-sm text-slate-300 line-clamp-2 leading-relaxed">
                     {banner.subtitle}
                   </p>
-                  <div className="flex items-center gap-5 pt-2">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl sm:text-4xl font-black text-amber-400">
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-5 pt-1 sm:pt-2">
+                    <div className="flex items-baseline gap-1.5 sm:gap-2">
+                      <span className="text-xl sm:text-3xl md:text-4xl font-black text-amber-400">
                         {banner.price}
                       </span>
                       {banner.oldPrice && (
-                        <span className="text-sm text-slate-500 line-through">
+                        <span className="text-xs sm:text-sm text-slate-500 line-through">
                           {banner.oldPrice}
                         </span>
                       )}
                     </div>
                     <Link
                       href="/menu"
-                      className="btn-gold-action px-6 py-3.5 rounded-2xl text-xs sm:text-sm flex items-center gap-2"
+                      className="btn-gold-action px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-2xl text-[11px] sm:text-sm flex items-center gap-1.5 sm:gap-2 shadow-lg"
                     >
                       <span>FAZER PEDIDO AGORA</span>
-                      <ArrowRight className="w-4 h-4 stroke-[3]" />
+                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3]" />
                     </Link>
                   </div>
                 </div>
@@ -126,13 +126,13 @@ export default function Home() {
           ))}
 
           {/* Dots */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 sm:gap-2">
             {BANNERS.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentSlide(i)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  i === currentSlide ? 'w-8 bg-amber-400' : 'w-2.5 bg-white/30 hover:bg-white/60'
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${
+                  i === currentSlide ? 'w-6 sm:w-8 bg-amber-400' : 'w-2 sm:w-2.5 bg-white/30 hover:bg-white/60'
                 }`}
                 aria-label={`Slide ${i + 1}`}
               />
