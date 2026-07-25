@@ -100,14 +100,14 @@ export const Header = () => {
                 className="w-full h-full object-cover rounded-[14px] bg-slate-950"
               />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="font-black text-lg sm:text-xl tracking-tight text-white leading-tight flex items-center gap-2">
-                {tenant.name}
-                <span className="text-[10px] badge-gold-glowing px-2 py-0.5 rounded font-black uppercase tracking-wider hidden md:inline-block">
+            <div>
+              <h1 className="font-black text-sm xs:text-base sm:text-xl tracking-tight text-white leading-tight flex items-center gap-1.5">
+                <span className="truncate max-w-[130px] xs:max-w-[180px] sm:max-w-none">{tenant.name}</span>
+                <span className="text-[9px] sm:text-[10px] badge-gold-glowing px-1.5 py-0.5 rounded font-black uppercase tracking-wider hidden sm:inline-block">
                   LONDRINA
                 </span>
               </h1>
-              <div className="flex items-center gap-1 text-xs text-amber-300 font-medium">
+              <div className="hidden sm:flex items-center gap-1 text-xs text-amber-300 font-medium">
                 <MapPin className="w-3 h-3 text-red-500 shrink-0" />
                 <span className="truncate max-w-[200px] sm:max-w-[280px]">
                   {tenant.address}

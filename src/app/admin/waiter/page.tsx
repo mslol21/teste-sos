@@ -48,18 +48,18 @@ export default function WaiterModePage() {
   };
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto min-h-screen">
+    <div className="p-4 md:p-8 space-y-6 md:space-y-8 max-w-7xl mx-auto min-h-screen">
       {/* Top Header */}
       <div className="flex items-center justify-between">
         <div>
           <span className="text-xs font-bold text-red-400 uppercase tracking-wider">
             Atendimento Presencial
           </span>
-          <h1 className="text-3xl font-black text-white mt-1">Modo Garçom & Gestão de Mesas</h1>
+          <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">Modo Garçom & Gestão de Mesas</h1>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
         {/* Left Column: Table Grid */}
         <div className="lg:col-span-7 space-y-4">
           <h3 className="font-extrabold text-white text-base flex items-center gap-2">
@@ -67,7 +67,7 @@ export default function WaiterModePage() {
             Mapa de Mesas da Lanchonete
           </h3>
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
             {tableList.map((num) => {
               const tableOrder = tables[num];
               const isOpen = Boolean(tableOrder && tableOrder.status === 'OPEN');

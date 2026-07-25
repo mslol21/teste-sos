@@ -27,14 +27,14 @@ export default function AdminFinancialPage() {
   };
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto min-h-screen">
+    <div className="p-4 md:p-8 space-y-6 md:space-y-8 max-w-7xl mx-auto min-h-screen">
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-red-400 uppercase tracking-wider">
             Gestão Financeira
           </span>
-          <h1 className="text-3xl font-black text-white mt-1">Fluxo de Caixa & Relatórios</h1>
+          <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">Fluxo de Caixa & Relatórios</h1>
         </div>
 
         <button

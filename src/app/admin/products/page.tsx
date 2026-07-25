@@ -46,14 +46,14 @@ export default function AdminProductsPage() {
   };
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto min-h-screen">
+    <div className="p-4 md:p-8 space-y-6 md:space-y-8 max-w-7xl mx-auto min-h-screen">
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-red-400 uppercase tracking-wider">
             Gestão de Cardápio
           </span>
-          <h1 className="text-3xl font-black text-white mt-1">Produtos & Categorias</h1>
+          <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">Produtos & Categorias</h1>
         </div>
 
         <div className="flex items-center gap-3">
@@ -81,7 +81,7 @@ export default function AdminProductsPage() {
           />
         </div>
 
-        <div className="flex gap-2 overflow-x-auto w-full md:w-auto">
+        <div className="flex gap-2 overflow-x-auto w-full md:w-auto no-scrollbar pb-1">
           <button
             onClick={() => setSelectedCat(null)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 ${
@@ -105,8 +105,8 @@ export default function AdminProductsPage() {
       </div>
 
       {/* Products Table */}
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
-        <table className="w-full text-left text-xs text-slate-300">
+      <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-x-auto shadow-xl no-scrollbar">
+        <table className="w-full min-w-[700px] text-left text-xs text-slate-300">
           <thead className="bg-slate-950 text-slate-400 uppercase font-bold border-b border-slate-800">
             <tr>
               <th className="p-4">Produto</th>

@@ -55,17 +55,17 @@ export default function AccountPage() {
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 space-y-8">
         {/* Customer Profile & Loyalty Banner */}
-        <div className="bg-gradient-to-r from-red-600 via-red-700 to-amber-500 rounded-3xl p-6 sm:p-8 text-white shadow-2xl space-y-4">
+        <div className="bg-gradient-to-r from-red-600 via-red-700 to-amber-500 rounded-3xl p-4 sm:p-8 text-white shadow-2xl space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl font-black border-2 border-white/40">
-                <User className="w-8 h-8 text-white" />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-xl sm:text-2xl font-black border-2 border-white/40 shrink-0">
+                <User className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <div>
-                <span className="bg-yellow-400 text-red-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+              <div className="min-w-0">
+                <span className="bg-yellow-400 text-red-950 font-black text-[9px] sm:text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">
                   Cliente VIP Londrina
                 </span>
-                <h1 className="text-2xl font-black mt-1">Carlos Eduardo Silva</h1>
+                <h1 className="text-xl sm:text-2xl font-black mt-0.5 sm:mt-1 truncate">Carlos Eduardo Silva</h1>
                 <p className="text-xs text-red-100 flex items-center gap-1">
                   <Phone className="w-3 h-3" />
                   (43) 99123-4567
@@ -74,15 +74,15 @@ export default function AccountPage() {
             </div>
 
             {/* Loyalty Balance Widget */}
-            <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 flex items-center gap-3">
-              <div className="p-3 bg-yellow-400 text-red-950 rounded-xl">
-                <Award className="w-6 h-6" />
+            <div className="bg-white/10 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-white/20 flex items-center gap-3 shrink-0">
+              <div className="p-2.5 sm:p-3 bg-yellow-400 text-red-950 rounded-xl">
+                <Award className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <span className="text-[11px] text-red-100 uppercase tracking-wider block font-bold">
+                <span className="text-[10px] sm:text-[11px] text-red-100 uppercase tracking-wider block font-bold">
                   Saldo de Pontos
                 </span>
-                <span className="text-2xl font-black text-yellow-300">
+                <span className="text-xl sm:text-2xl font-black text-yellow-300">
                   {customerPoints} Pts
                 </span>
               </div>
@@ -91,10 +91,10 @@ export default function AccountPage() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-slate-200 dark:border-slate-800 space-x-4">
+        <div className="flex border-b border-slate-200 dark:border-slate-800 space-x-2 sm:space-x-4 overflow-x-auto no-scrollbar pb-1">
           <button
             onClick={() => setActiveTab('rewards')}
-            className={`pb-3 text-sm font-extrabold flex items-center gap-2 border-b-2 transition ${
+            className={`pb-3 text-xs sm:text-sm font-extrabold flex items-center gap-2 border-b-2 shrink-0 transition ${
               activeTab === 'rewards'
                 ? 'border-red-600 text-red-600 dark:text-red-400'
                 : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -106,7 +106,7 @@ export default function AccountPage() {
 
           <button
             onClick={() => setActiveTab('orders')}
-            className={`pb-3 text-sm font-extrabold flex items-center gap-2 border-b-2 transition ${
+            className={`pb-3 text-xs sm:text-sm font-extrabold flex items-center gap-2 border-b-2 shrink-0 transition ${
               activeTab === 'orders'
                 ? 'border-red-600 text-red-600 dark:text-red-400'
                 : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -118,7 +118,7 @@ export default function AccountPage() {
 
           <button
             onClick={() => setActiveTab('addresses')}
-            className={`pb-3 text-sm font-extrabold flex items-center gap-2 border-b-2 transition ${
+            className={`pb-3 text-xs sm:text-sm font-extrabold flex items-center gap-2 border-b-2 shrink-0 transition ${
               activeTab === 'addresses'
                 ? 'border-red-600 text-red-600 dark:text-red-400'
                 : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'

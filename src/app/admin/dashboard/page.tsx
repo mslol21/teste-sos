@@ -25,14 +25,14 @@ export default function AdminDashboardPage() {
   const averageTicket = totalOrdersCount > 0 ? (totalRevenue + 1850) / totalOrdersCount : 0;
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto">
+    <div className="p-4 md:p-8 space-y-6 md:space-y-8 max-w-7xl mx-auto">
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-red-400 uppercase tracking-wider">
             Painel Executivo — {tenant.name}
           </span>
-          <h1 className="text-3xl font-black text-white mt-1">Dashboard de Desempenho</h1>
+          <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">Dashboard de Desempenho</h1>
         </div>
 
         <div className="flex items-center gap-3">

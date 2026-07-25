@@ -175,44 +175,44 @@ export default function CheckoutPage() {
                 1. Tipo de Pedido
               </h3>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
                 <button
                   type="button"
                   onClick={() => setOrderType('DELIVERY')}
-                  className={`p-3.5 rounded-2xl border text-center font-bold text-xs flex flex-col items-center gap-2 transition ${
+                  className={`p-2.5 sm:p-3.5 rounded-2xl border text-center font-bold text-[10px] xs:text-xs flex flex-col items-center gap-1.5 sm:gap-2 transition ${
                     orderType === 'DELIVERY'
                       ? 'bg-red-50 dark:bg-red-950/50 border-red-500 text-red-700 dark:text-red-300 shadow-xs'
                       : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-slate-300'
                   }`}
                 >
-                  <Truck className="w-5 h-5" />
-                  <span>Entrega em Casa</span>
+                  <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="truncate w-full">Entrega</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setOrderType('PICKUP')}
-                  className={`p-3.5 rounded-2xl border text-center font-bold text-xs flex flex-col items-center gap-2 transition ${
+                  className={`p-2.5 sm:p-3.5 rounded-2xl border text-center font-bold text-[10px] xs:text-xs flex flex-col items-center gap-1.5 sm:gap-2 transition ${
                     orderType === 'PICKUP'
                       ? 'bg-red-50 dark:bg-red-950/50 border-red-500 text-red-700 dark:text-red-300 shadow-xs'
                       : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-slate-300'
                   }`}
                 >
-                  <Store className="w-5 h-5" />
-                  <span>Retirar no Balcão</span>
+                  <Store className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="truncate w-full">Retirada</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setOrderType('TABLE')}
-                  className={`p-3.5 rounded-2xl border text-center font-bold text-xs flex flex-col items-center gap-2 transition ${
+                  className={`p-2.5 sm:p-3.5 rounded-2xl border text-center font-bold text-[10px] xs:text-xs flex flex-col items-center gap-1.5 sm:gap-2 transition ${
                     orderType === 'TABLE'
                       ? 'bg-red-50 dark:bg-red-950/50 border-red-500 text-red-700 dark:text-red-300 shadow-xs'
                       : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-slate-300'
                   }`}
                 >
-                  <UtensilsCrossed className="w-5 h-5" />
-                  <span>Comer na Mesa</span>
+                  <UtensilsCrossed className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="truncate w-full">Na Mesa</span>
                 </button>
               </div>
             </div>
@@ -380,44 +380,44 @@ export default function CheckoutPage() {
                 4. Forma de Pagamento
               </h3>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('PIX')}
-                  className={`p-3.5 rounded-2xl border text-center font-bold text-xs flex flex-col items-center gap-2 transition ${
+                  className={`p-2.5 sm:p-3.5 rounded-2xl border text-center font-bold text-[10px] xs:text-xs flex flex-col items-center gap-1.5 sm:gap-2 transition ${
                     paymentMethod === 'PIX'
                       ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs'
                       : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
                   }`}
                 >
-                  <QrCode className="w-5 h-5" />
-                  <span>PIX Instantâneo</span>
+                  <QrCode className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="truncate w-full">PIX</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('CREDIT_CARD')}
-                  className={`p-3.5 rounded-2xl border text-center font-bold text-xs flex flex-col items-center gap-2 transition ${
+                  className={`p-2.5 sm:p-3.5 rounded-2xl border text-center font-bold text-[10px] xs:text-xs flex flex-col items-center gap-1.5 sm:gap-2 transition ${
                     paymentMethod === 'CREDIT_CARD'
                       ? 'bg-blue-50 dark:bg-blue-950/50 border-blue-500 text-blue-700 dark:text-blue-300 shadow-xs'
                       : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
                   }`}
                 >
-                  <CreditCard className="w-5 h-5" />
-                  <span>Cartão</span>
+                  <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="truncate w-full">Cartão</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('CASH')}
-                  className={`p-3.5 rounded-2xl border text-center font-bold text-xs flex flex-col items-center gap-2 transition ${
+                  className={`p-2.5 sm:p-3.5 rounded-2xl border text-center font-bold text-[10px] xs:text-xs flex flex-col items-center gap-1.5 sm:gap-2 transition ${
                     paymentMethod === 'CASH'
                       ? 'bg-amber-50 dark:bg-amber-950/50 border-amber-500 text-amber-800 dark:text-amber-300 shadow-xs'
                       : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
                   }`}
                 >
-                  <Banknote className="w-5 h-5" />
-                  <span>Dinheiro</span>
+                  <Banknote className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="truncate w-full">Dinheiro</span>
                 </button>
               </div>
 
@@ -525,7 +525,7 @@ export default function CheckoutPage() {
 
           {/* Right Column - Order Summary */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl space-y-4 sticky top-24">
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl space-y-4 lg:sticky lg:top-24">
               <h3 className="font-extrabold text-base text-slate-900 dark:text-white flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
                 <ShoppingBag className="w-5 h-5 text-red-600" />
                 Resumo do Pedido ({cart.length} itens)

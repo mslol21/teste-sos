@@ -181,7 +181,7 @@ export default function OrderTrackingPage() {
                       {step.icon}
                     </div>
                     <span
-                      className={`text-[11px] font-bold mt-2 text-center hidden sm:block ${
+                      className={`text-[9px] sm:text-[11px] font-bold mt-1.5 sm:mt-2 text-center ${
                         isCompleted ? 'text-white' : 'text-slate-500'
                       }`}
                     >

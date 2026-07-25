@@ -23,6 +23,7 @@ export default function AdminOrdersPage() {
   const { orders, updateOrderStatus, tenant, audioAlertEnabled, setAudioAlertEnabled } = useStore();
   const [selectedOrderForPrint, setSelectedOrderForPrint] = useState<Order | null>(null);
   const [paperWidth, setPaperWidth] = useState<'58mm' | '80mm'>('80mm');
+  const [activeMobileTab, setActiveMobileTab] = useState<number | 'ALL'>('ALL');
 
   const columns: { status: OrderStatus[]; title: string; color: string }[] = [
     { status: ['NEW'], title: 'Novos Chegando', color: 'border-red-500 bg-red-950/20 text-red-400' },
@@ -68,14 +69,14 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="p-8 space-y-6 max-w-[1600px] mx-auto min-h-screen flex flex-col">
+    <div className="p-4 md:p-8 space-y-6 max-w-[1600px] mx-auto min-h-screen flex flex-col">
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-bold text-red-400 uppercase tracking-wider">
             Gestão Realtime de Pedidos
           </span>
-          <h1 className="text-3xl font-black text-white mt-1">Quadro Kanban de Pedidos</h1>
+          <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">Quadro Kanban de Pedidos</h1>
         </div>
 
         <div className="flex items-center gap-3">
@@ -93,9 +94,42 @@ export default function AdminOrdersPage() {
         </div>
       </div>
 
+      {/* Mobile Column Switcher Tabs */}
+      <div className="flex md:hidden gap-2 overflow-x-auto no-scrollbar pb-1">
+        <button
+          onClick={() => setActiveMobileTab('ALL')}
+          className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 border ${
+            activeMobileTab === 'ALL'
+              ? 'bg-red-600 text-white border-red-500'
+              : 'bg-slate-900 text-slate-400 border-slate-800'
+          }`}
+        >
+          Todas Colunas ({orders.length})
+        </button>
+        {columns.map((c, idx) => {
+          const count = orders.filter((o) => c.status.includes(o.status)).length;
+          return (
+            <button
+              key={c.title}
+              onClick={() => setActiveMobileTab(idx)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 border ${
+                activeMobileTab === idx
+                  ? 'bg-red-600 text-white border-red-500'
+                  : 'bg-slate-900 text-slate-400 border-slate-800'
+              }`}
+            >
+              {c.title} ({count})
+            </button>
+          );
+        })}
+      </div>
+
       {/* Kanban Columns Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 items-start">
-        {columns.map((col) => {
+        {columns.map((col, idx) => {
+          if (activeMobileTab !== 'ALL' && activeMobileTab !== idx) {
+            return null;
+          }
           const colOrders = orders.filter((o) => col.status.includes(o.status));
 
           return (

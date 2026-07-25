@@ -23,9 +23,9 @@ export default function KitchenDisplaySystemPage() {
   };
 
   return (
-    <div className="p-6 space-y-6 min-h-screen bg-slate-950 text-white">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6 min-h-screen bg-slate-950 text-white">
       {/* Header Bar */}
-      <div className="flex items-center justify-between bg-slate-900 p-4 rounded-3xl border border-slate-800">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-slate-900 p-4 rounded-3xl border border-slate-800 gap-4">
         <div className="flex items-center gap-3">
           <div className="p-3 bg-red-600 text-white rounded-2xl">
             <ChefHat className="w-6 h-6" />

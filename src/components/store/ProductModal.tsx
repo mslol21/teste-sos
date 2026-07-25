@@ -105,9 +105,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col border border-slate-200 dark:border-slate-800"
+        className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] sm:max-h-[90vh] flex flex-col border border-slate-200 dark:border-slate-800"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close & Share buttons */}
@@ -276,25 +276,25 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-3 sm:p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex flex-row items-center justify-between gap-2 sm:gap-4">
           {/* Quantity Controls */}
-          <div className="flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-1.5 rounded-2xl shadow-xs">
+          <div className="flex items-center gap-1.5 sm:gap-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-1 sm:p-1.5 rounded-2xl shadow-xs shrink-0">
             <button
               onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-              className="w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
+              className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
               aria-label="Reduzir quantidade"
             >
-              <Minus className="w-4 h-4 text-slate-700 dark:text-slate-200" />
+              <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-700 dark:text-slate-200" />
             </button>
-            <span className="w-8 text-center font-extrabold text-base text-slate-900 dark:text-white">
+            <span className="w-6 sm:w-8 text-center font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">
               {quantity}
             </span>
             <button
               onClick={() => setQuantity((q) => q + 1)}
-              className="w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
+              className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
               aria-label="Aumentar quantidade"
             >
-              <Plus className="w-4 h-4 text-slate-700 dark:text-slate-200" />
+              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-700 dark:text-slate-200" />
             </button>
           </div>
 
@@ -302,17 +302,17 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
           <button
             disabled={!isFormValid}
             onClick={handleAdd}
-            className={`w-full sm:w-auto flex-1 flex items-center justify-between gap-4 px-6 py-3.5 rounded-2xl font-bold shadow-lg transition active:scale-95 ${
+            className={`flex-1 flex items-center justify-between gap-2 sm:gap-4 px-3.5 sm:px-6 py-3 sm:py-3.5 rounded-2xl font-bold shadow-lg transition active:scale-95 text-xs sm:text-sm ${
               isFormValid
                 ? 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white cursor-pointer'
                 : 'bg-slate-300 dark:bg-slate-800 text-slate-500 cursor-not-allowed'
             }`}
           >
-            <span className="flex items-center gap-2 text-sm">
-              <ShoppingBag className="w-5 h-5" />
-              Adicionar ao Carrinho
+            <span className="flex items-center gap-1.5 truncate">
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span className="truncate">Adicionar</span>
             </span>
-            <span className="text-base font-black">
+            <span className="text-xs sm:text-base font-black shrink-0">
               R$ {totalPrice.toFixed(2)}
             </span>
           </button>
