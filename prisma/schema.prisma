@@ -1,0 +1,234 @@
+// Prisma Schema - Delivery White Label SaaS System
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum OrderType {
+  DELIVERY
+  PICKUP
+  TABLE
+}
+
+enum OrderStatus {
+  NEW
+  ACCEPTED
+  PREPARING
+  READY
+  OUT_FOR_DELIVERY
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  PIX
+  CREDIT_CARD
+  DEBIT_CARD
+  CASH
+}
+
+enum CouponDiscountType {
+  PERCENTAGE
+  FIXED
+  FREE_DELIVERY
+}
+
+model Tenant {
+  id              String      @id @default(uuid())
+  name            String
+  slug            String      @unique
+  slogan          String?
+  logoUrl         String?
+  primaryColor    String      @default("#E53935")
+  secondaryColor  String      @default("#FFC107")
+  minOrderValue   Float       @default(20.0)
+  defaultFee      Float       @default(7.0)
+  avgDeliveryTime String      @default("35 - 50 min")
+  whatsappNumber  String      @default("43999999999")
+  address         String      @default("Av. Higienópolis, 1000 - Centro")
+  city            String      @default("Londrina")
+  state           String      @default("PR")
+  active          Boolean     @default(true)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  categories      Category[]
+  products        Product[]
+  orders          Order[]
+  coupons         Coupon[]
+  neighborhoods   NeighborhoodDelivery[]
+  loyaltyAccounts LoyaltyAccount[]
+  loyaltyRewards  LoyaltyReward[]
+  aiInsights      AIInsight[]
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  tenantId    String
+  tenant      Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name        String
+  slug        String
+  icon        String?
+  image       String?
+  orderIndex  Int       @default(0)
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+
+  products    Product[]
+}
+
+model Product {
+  id              String        @id @default(uuid())
+  tenantId        String
+  tenant          Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  categoryId      String
+  category        Category      @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  name            String
+  description     String
+  price           Float
+  promoPrice      Float?
+  image           String
+  isNew           Boolean       @default(false)
+  isPromo         Boolean       @default(false)
+  isBestSeller    Boolean       @default(false)
+  ingredients     String[]
+  nutritionalInfo String?
+  prepTimeMinutes Int           @default(20)
+  active          Boolean       @default(true)
+  stockCount      Int           @default(999)
+  createdAt       DateTime      @default(now())
+
+  optionGroups    OptionGroup[]
+}
+
+model OptionGroup {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  name      String
+  minSelect Int      @default(0)
+  maxSelect Int      @default(1)
+  required  Boolean  @default(false)
+
+  options   Option[]
+}
+
+model Option {
+  id            String      @id @default(uuid())
+  optionGroupId String
+  optionGroup   OptionGroup @relation(fields: [optionGroupId], references: [id], onDelete: Cascade)
+  name          String
+  price         Float       @default(0.0)
+  active        Boolean     @default(true)
+}
+
+model Order {
+  id              String         @id @default(uuid())
+  tenantId        String
+  tenant          Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  customerName    String
+  customerPhone   String
+  customerCpf     String?
+  orderType       OrderType      @default(DELIVERY)
+  status          OrderStatus    @default(NEW)
+  deliveryAddress String?
+  number          String?
+  neighborhood    String?
+  zipCode         String?
+  reference       String?
+  tableNumber     Int?
+  paymentMethod   PaymentMethod  @default(PIX)
+  changeFor       Float?
+  subtotal        Float
+  deliveryFee     Float          @default(0.0)
+  discount        Float          @default(0.0)
+  total           Float
+  notes           String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  items           OrderItem[]
+}
+
+model OrderItem {
+  id          String            @id @default(uuid())
+  orderId     String
+  order       Order             @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId   String
+  productName String
+  unitPrice   Float
+  quantity    Int
+  notes       String?
+  totalPrice  Float
+
+  options     OrderItemOption[]
+}
+
+model OrderItemOption {
+  id          String    @id @default(uuid())
+  orderItemId String
+  orderItem   OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+  groupName   String
+  optionName  String
+  optionPrice Float
+}
+
+model Coupon {
+  id            String             @id @default(uuid())
+  tenantId      String
+  tenant        Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code          String
+  discountType  CouponDiscountType @default(PERCENTAGE)
+  discountValue Float
+  minOrderValue Float              @default(0.0)
+  maxUses       Int                @default(100)
+  usedCount     Int                @default(0)
+  validUntil    DateTime
+  active        Boolean            @default(true)
+}
+
+model NeighborhoodDelivery {
+  id       String  @id @default(uuid())
+  tenantId String
+  tenant   Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name     String
+  fee      Float
+  active   Boolean @default(true)
+}
+
+model LoyaltyAccount {
+  id            String   @id @default(uuid())
+  tenantId      String
+  tenant        Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  customerPhone String
+  customerName  String
+  pointsBalance Int      @default(0)
+  updatedAt     DateTime @updatedAt
+}
+
+model LoyaltyReward {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name        String
+  pointsCost  Int
+  rewardType  String
+  image       String
+  active      Boolean  @default(true)
+}
+
+model AIInsight {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  type       String
+  title      String
+  message    String
+  actionText String?
+  status     String   @default("NEW")
+  createdAt  DateTime @default(now())
+}
