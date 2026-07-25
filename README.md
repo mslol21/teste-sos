@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍔 SOS.LANCHES Delivery — Sistema White Label SaaS
 
-## Getting Started
+Sistema de delivery profissional inspirado no iFood, Anota AI, Pedido.ai e Goomer, desenvolvido sob medida para o **SOS.LANCHES Delivery** em Londrina (Região Norte/PR) com arquitetura **Multi-Tenant White Label**.
 
-First, run the development server:
+---
+
+## 🛠 Stack Tecnológica
+
+- **Framework**: Next.js 15 (App Router)
+- **UI & Library**: React 19, TypeScript
+- **Styling**: Tailwind CSS v4, Lucide Icons, Framer Motion, Glassmorphism
+- **Database & ORM**: PostgreSQL, Prisma ORM, Supabase Realtime
+- **State & Workflow**: React Context with LocalStorage sync
+- **Deployment**: Vercel Ready
+
+---
+
+## 🔥 Principais Funcionalidades
+
+### 📱 **Loja Virtual (Storefront)**
+- **Home & Hero Banner**: Slider com promoções da casa, categorias horizontais, produtos em destaque e avaliações dos clientes de Londrina.
+- **Cardápio Completo**: Filtros por categoria, itens em promoção, mais vendidos, favoritos e ordenação por preço.
+- **Personalizador de Lanches**: Escolha do pão, queijos e adicionais com validação min/max, informações nutricionais e campo de observações.
+- **Carrinho & Checkout**: Cupons de desconto (`SOS10`, `FRETEGRATIS`), taxa de entrega por bairro de Londrina, pagamento via **PIX Instantâneo**, Cartão ou Dinheiro c/ Troco.
+- **Rastreamento em Tempo Real**: Linha do tempo animada (Recebido ➔ Na Cozinha ➔ Saiu para Entrega ➔ Entregue).
+- **Área do Cliente**: Saldo de pontos de fidelidade com resgate de prêmios e histórico com opção de **Repetir Pedido**.
+
+---
+
+### ⚙️ **Painel Administrativo & Operacional**
+- **Dashboard Executivo**: Faturamento bruto, lucro estimado, ticket médio, entregadores online e resumo de vendas.
+- **Quadro Kanban de Pedidos**: Movimentação visual de status, alertas sonoros de novos pedidos e **Gerador de Comanda Térmica (58mm e 80mm ESC/POS)**.
+- **Cozinha (KDS)**: Tela inteira para a cozinha com temporizador de urgência colorido e atalhos rápidos.
+- **Modo Garçom**: Mapa de mesas (Mesas 1 a 12), abertura de comanda, lançamento de produtos e fechamento de conta.
+- **Módulo de Inteligência Artificial**: Motor de IA para recomendação de promoções, previsão de demanda nos fins de semana e reengajamento de clientes.
+- **Financeiro**: Divisão de vendas por forma de pagamento e exportação de relatórios em CSV.
+
+---
+
+## 🚀 Como Rodar o Projeto
 
 ```bash
+# Instalar dependências
+npm install
+
+# Iniciar o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Compilar para produção
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔗 Repositório no GitHub
+- GitHub: [https://github.com/mslol21/teste-sos.git](https://github.com/mslol21/teste-sos.git)
