@@ -20,7 +20,7 @@ export default function MenuPage() {
     
     let matchesFilter = true;
     if (filter === 'PROMO') matchesFilter = !!p.isPromo;
-    if (filter === 'BEST_SELLER') matchesFilter = p.rating && p.rating >= 4.8 || false;
+    if (filter === 'BEST_SELLER') matchesFilter = !!p.isBestSeller;
 
     return matchesCategory && matchesSearch && matchesFilter;
   });
