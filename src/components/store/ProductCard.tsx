@@ -61,7 +61,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Image Container with Hover Zoom */}
         <div
           onClick={() => setIsModalOpen(true)}
-          className="relative aspect-4/3 overflow-hidden bg-slate-950 cursor-pointer"
+          className="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-950 cursor-pointer shrink-0"
         >
           <img
             src={product.image}
@@ -84,7 +84,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div>
             <h3
               onClick={() => setIsModalOpen(true)}
-              className="font-extrabold text-white text-base leading-snug group-hover:text-amber-400 transition cursor-pointer"
+              className="font-extrabold text-white text-base leading-snug group-hover:text-amber-400 transition cursor-pointer line-clamp-2"
             >
               {product.name}
             </h3>

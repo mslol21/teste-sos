@@ -47,10 +47,10 @@ export const Header = () => {
         {/* Top Info Bar */}
         <div className="bg-gradient-to-r from-red-700 via-amber-600 to-red-700 text-white text-xs py-1.5 px-4 font-bold shadow-md hidden sm:block">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1.5 font-extrabold tracking-wide uppercase">
-                <Flame className="w-4 h-4 text-yellow-300 animate-flame" />
-                {tenant.slogan}
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="flex items-center gap-1.5 font-extrabold tracking-wide uppercase truncate">
+                <Flame className="w-4 h-4 text-yellow-300 animate-flame shrink-0" />
+                <span className="truncate">{tenant.slogan}</span>
               </span>
               <span className="hidden md:inline text-red-200">|</span>
               <span className="hidden md:flex items-center gap-1">
