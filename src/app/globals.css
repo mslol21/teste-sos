@@ -21,49 +21,46 @@
   }
 }
 
-/* Glassmorphism & custom glowing cards */
+/* Glassmorphism & clean cards */
 .glass-panel-dark {
-  background: rgba(23, 18, 18, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+  background: rgba(13, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .gold-glow-card {
-  background: linear-gradient(145deg, rgba(23, 18, 18, 0.95), rgba(35, 25, 25, 0.95));
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.15), 0 4px 12px rgba(0, 0, 0, 0.6);
+  background: #171212;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
 }
 
 .gold-glow-card:hover {
-  border-color: rgba(245, 158, 11, 0.6);
-  box-shadow: 0 15px 35px -5px rgba(245, 158, 11, 0.3), 0 8px 20px rgba(220, 38, 38, 0.2);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
 }
 
 .badge-gold-glowing {
-  background: linear-gradient(135deg, #F59E0B, #D97706);
+  background: #F59E0B;
   color: #0D0A0A;
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
 }
 
 .badge-red-glowing {
-  background: linear-gradient(135deg, #DC2626, #991B1B);
+  background: #DC2626;
   color: #FFFFFF;
-  box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
 }
 
 .btn-gold-action {
-  background: linear-gradient(135deg, #F59E0B, #D97706);
-  color: #0D0A0A;
-  font-weight: 900;
-  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
-  transition: all 0.3s ease;
+  background: #DC2626;
+  color: #FFFFFF;
+  font-weight: 800;
+  transition: all 0.2s ease;
 }
 
 .btn-gold-action:hover {
-  background: linear-gradient(135deg, #FBBF24, #F59E0B);
-  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
-  transform: translateY(-2px);
+  background: #B91C1C;
+  transform: translateY(-1px);
 }
 
 /* Custom Scrollbar */
@@ -91,8 +88,8 @@
 }
 
 @keyframes flame-pulse {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6)); }
-  50% { transform: scale(1.06); filter: drop-shadow(0 0 15px rgba(220, 38, 38, 0.8)); }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .animate-flame {

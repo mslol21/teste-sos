@@ -76,7 +76,7 @@ export default function Home() {
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-12">
         {/* Banner Hero Slider */}
-        <section className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border-2 border-amber-500/30 aspect-[21/9] min-h-[320px] sm:min-h-[420px]">
+        <section className="relative rounded-3xl overflow-hidden shadow-lg bg-slate-900 border border-slate-200/20 aspect-[21/9] min-h-[320px] sm:min-h-[420px]">
           {BANNERS.map((banner, index) => (
             <div
               key={banner.id}

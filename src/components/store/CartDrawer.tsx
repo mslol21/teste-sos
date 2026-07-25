@@ -33,6 +33,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
     cartDeliveryFee,
     cartTotal,
     tenant,
+    products,
+    addToCart,
   } = useStore();
 
   const [couponInput, setCouponInput] = useState('');
@@ -260,6 +262,51 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                 <span>Finalizar Pedido</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
+            </div>
+          )}
+
+          {/* Upsell / Cross-sell Section */}
+          {cart.length > 0 && (
+            <div className="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+              <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-3 flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-amber-500" />
+                Aproveite e leve também
+              </h4>
+              <div className="flex overflow-x-auto gap-3 pb-2 no-scrollbar">
+                {products
+                  .filter((p) => p.categoryId === 'cat-bebidas' || p.categoryId === 'cat-porcoes')
+                  .filter((p) => !cart.some((c) => c.product.id === p.id))
+                  .slice(0, 3)
+                  .map((suggestion) => (
+                    <div
+                      key={suggestion.id}
+                      className="min-w-[140px] max-w-[140px] bg-slate-50 dark:bg-slate-800 rounded-xl p-2.5 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-2"
+                    >
+                      <div className="flex gap-2 items-center">
+                        <img
+                          src={suggestion.image}
+                          alt={suggestion.name}
+                          className="w-10 h-10 rounded-lg object-cover"
+                        />
+                        <span className="text-[10px] font-bold text-slate-900 dark:text-white leading-tight line-clamp-2">
+                          {suggestion.name}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-black text-red-600 dark:text-red-400">
+                          R$ {suggestion.price.toFixed(2)}
+                        </span>
+                        <button
+                          onClick={() => addToCart(suggestion, 1, [])}
+                          className="bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-400 hover:bg-red-200 p-1.5 rounded-lg transition"
+                          title="Adicionar"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </div>
           )}
         </div>
